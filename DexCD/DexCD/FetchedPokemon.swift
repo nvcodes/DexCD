@@ -66,7 +66,7 @@ struct FetchedPokemon: Decodable {
         var decodedStats: [Int16] = []
         var statsContainer = try container.nestedUnkeyedContainer(forKey: .stats)
         while !statsContainer.isAtEnd {
-            let statsDictionaryContainer = try typesContainer.nestedContainer(keyedBy: CodingKeys.StatDictionaryKeys.self)
+            let statsDictionaryContainer = try statsContainer.nestedContainer(keyedBy: CodingKeys.StatDictionaryKeys.self)
             
             let stat = try statsDictionaryContainer.decode(Int16.self, forKey: .baseStat)
             decodedStats.append(stat)
@@ -78,7 +78,7 @@ struct FetchedPokemon: Decodable {
         specialDefense = decodedStats[4]
         speed = decodedStats[5]
         
-        var spriteContainer = try container.nestedContainer(keyedBy: CodingKeys.SpriteKeys.self, forKey: .sprites)
+        let spriteContainer = try container.nestedContainer(keyedBy: CodingKeys.SpriteKeys.self, forKey: .sprites)
         sprite = try spriteContainer.decode(URL.self, forKey: .sprite)
         shiny = try spriteContainer.decode(URL.self, forKey: .shiny)
     }
