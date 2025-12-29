@@ -5,60 +5,29 @@
 //  Created by Nagaraju on 27/12/25.
 //
 
-import CoreData
+import Foundation
+import SwiftData
 
+@MainActor
 struct PersistenceController {
-    static let shared = PersistenceController()
     
     static var previewPokemon: Pokemon {
-        let context = PersistenceController.preview.container.viewContext
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+
+        let pokemonData = try! Data(contentsOf: Bundle.main.url(forResource: "samplepokemon", withExtension: "json")!)
         
-        let fetchRequest: NSFetchRequest<Pokemon> = Pokemon.fetchRequest()
-        fetchRequest.fetchLimit = 1
-        let results = try! context.fetch(fetchRequest)
+        let pokemon = try! decoder.decode(Pokemon.self, from: pokemonData)
         
-        return results.first!
+        return pokemon
     }
 
-    static let preview: PersistenceController = {
-        let result = PersistenceController(inMemory: true)
-        let viewContext = result.container.viewContext
-        let newPokemon = Pokemon(context: viewContext)
-        newPokemon.id = 1
-        newPokemon.name = "bulbasur"
-        newPokemon.types = ["grass", "poison"]
-        newPokemon.hp = 45
-        newPokemon.attack = 49
-        newPokemon.defense = 49
-        newPokemon.specialAttack = 65
-        newPokemon.specialDefense = 65
-        newPokemon.speed = 45
-        newPokemon.spriteURL = URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png")
-        newPokemon.shinyURL = URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/1.png")
+    //Sample Preview database
+    static let preview: ModelContainer = {
+        let container = try! ModelContainer(for: Pokemon.self, configurations: ModelConfiguration(isStoredInMemoryOnly: true))
         
-        do {
-            try viewContext.save()
-        } catch {
-          print(error)
-        }
-        return result
+        container.mainContext.insert(previewPokemon)
+        
+        return container
     }()
-
-    let container: NSPersistentContainer
-
-    init(inMemory: Bool = false) {
-        container = NSPersistentContainer(name: "DexCD")
-        if inMemory {
-            container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
-        } else {
-            container.persistentStoreDescriptions.first!.url = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.suiapps.DexCDGroup")!.appending(path: "DexCD.sqlite")
-        }
-        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
-            if let error = error as NSError? {
-                print(error)
-            }
-        })
-        container.viewContext.mergePolicy = NSMergePolicy.mergeByPropertyStoreTrump //Keep one database when duplicate entry arrives.
-        container.viewContext.automaticallyMergesChangesFromParent = true
-    }
 }
