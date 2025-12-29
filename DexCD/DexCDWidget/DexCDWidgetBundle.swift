@@ -1,16 +1,16 @@
+////
+////  DexCDWidgetBundle.swift
+////  DexCDWidget
+////
+////  Created by Nagaraju on 29/12/25.
+////
 //
-//  DexCDWidgetBundle.swift
-//  DexCDWidget
+//import WidgetKit
+//import SwiftUI
 //
-//  Created by Nagaraju on 29/12/25.
-//
-
-import WidgetKit
-import SwiftUI
-
-@main
-struct DexCDWidgetBundle: WidgetBundle {
-    var body: some Widget {
-        DexCDWidget()
-    }
-}
+//@main
+//struct DexCDWidgetBundle: WidgetBundle {
+//    var body: some Widget {
+//        DexCDWidget()
+//    }
+//}
