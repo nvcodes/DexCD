@@ -75,13 +75,20 @@ struct ContentView: View {
                     Section {
                         ForEach(pokedex) { pokemon in
                             NavigationLink(value: pokemon) {
-                                AsyncImage(url: pokemon.spriteURL) { image in
-                                    image
+                                if pokemon.sprite == nil {
+                                    AsyncImage(url: pokemon.spriteURL) { image in
+                                        image
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: 100, height: 100)
+                                    } placeholder: {
+                                        ProgressView()
+                                    }
+                                } else {
+                                    pokemon.spriteImage
                                         .resizable()
                                         .scaledToFit()
                                         .frame(width: 100, height: 100)
-                                } placeholder: {
-                                    ProgressView()
                                 }
                                 
                                 VStack(alignment: .leading) {

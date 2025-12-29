@@ -8,6 +8,25 @@
 import SwiftUI
 
 extension Pokemon {
+    
+    var spriteImage: Image {
+        if let data = sprite,
+           let image = UIImage(data: data) {
+            return Image(uiImage: image)
+        } else {
+            return Image(.bulbasaur)
+        }
+    }
+    
+    var shinyImage: Image {
+        if let data = shiny,
+           let image = UIImage(data: data) {
+            return Image(uiImage: image)
+        } else {
+            return Image(.shinybulbasaur)
+        }
+    }
+    
     var background: ImageResource {
         switch types![0] {
         case "rock", "ground", "steel", "fighting", "ghost", "dark", "psychic":
