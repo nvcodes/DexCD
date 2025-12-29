@@ -6,14 +6,78 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		E67975892F024A02000C4FF7 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E67975882F024A02000C4FF7 /* WidgetKit.framework */; };
+		E679758B2F024A02000C4FF7 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E679758A2F024A02000C4FF7 /* SwiftUI.framework */; };
+		E67975962F024A04000C4FF7 /* DexCDWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = E67975862F024A02000C4FF7 /* DexCDWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E67975942F024A04000C4FF7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E654AAE22EFF9E1B00C9F09B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E67975852F024A02000C4FF7;
+			remoteInfo = DexCDWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E679759B2F024A04000C4FF7 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				E67975962F024A04000C4FF7 /* DexCDWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		E654AAEA2EFF9E1B00C9F09B /* DexCD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DexCD.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E67975862F024A02000C4FF7 /* DexCDWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = DexCDWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		E67975882F024A02000C4FF7 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		E679758A2F024A02000C4FF7 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		E67975972F024A04000C4FF7 /* Exceptions for "DexCDWidget" folder in "DexCDWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = E67975852F024A02000C4FF7 /* DexCDWidgetExtension */;
+		};
+		E679759D2F024C5B000C4FF7 /* Exceptions for "DexCD" folder in "DexCDWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Assets.xcassets,
+				DexCD.xcdatamodeld,
+				Persistence.swift,
+				PokemonExt.swift,
+			);
+			target = E67975852F024A02000C4FF7 /* DexCDWidgetExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		E654AAEC2EFF9E1B00C9F09B /* DexCD */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				E679759D2F024C5B000C4FF7 /* Exceptions for "DexCD" folder in "DexCDWidgetExtension" target */,
+			);
 			path = DexCD;
+			sourceTree = "<group>";
+		};
+		E679758C2F024A02000C4FF7 /* DexCDWidget */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				E67975972F024A04000C4FF7 /* Exceptions for "DexCDWidget" folder in "DexCDWidgetExtension" target */,
+			);
+			path = DexCDWidget;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -26,6 +90,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E67975832F024A02000C4FF7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E679758B2F024A02000C4FF7 /* SwiftUI.framework in Frameworks */,
+				E67975892F024A02000C4FF7 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -33,6 +106,8 @@
 			isa = PBXGroup;
 			children = (
 				E654AAEC2EFF9E1B00C9F09B /* DexCD */,
+				E679758C2F024A02000C4FF7 /* DexCDWidget */,
+				E67975872F024A02000C4FF7 /* Frameworks */,
 				E654AAEB2EFF9E1B00C9F09B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -41,8 +116,18 @@
 			isa = PBXGroup;
 			children = (
 				E654AAEA2EFF9E1B00C9F09B /* DexCD.app */,
+				E67975862F024A02000C4FF7 /* DexCDWidgetExtension.appex */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		E67975872F024A02000C4FF7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E67975882F024A02000C4FF7 /* WidgetKit.framework */,
+				E679758A2F024A02000C4FF7 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -55,10 +140,12 @@
 				E654AAE62EFF9E1B00C9F09B /* Sources */,
 				E654AAE72EFF9E1B00C9F09B /* Frameworks */,
 				E654AAE82EFF9E1B00C9F09B /* Resources */,
+				E679759B2F024A04000C4FF7 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				E67975952F024A04000C4FF7 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				E654AAEC2EFF9E1B00C9F09B /* DexCD */,
@@ -69,6 +156,28 @@
 			productName = DexCD;
 			productReference = E654AAEA2EFF9E1B00C9F09B /* DexCD.app */;
 			productType = "com.apple.product-type.application";
+		};
+		E67975852F024A02000C4FF7 /* DexCDWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E67975982F024A04000C4FF7 /* Build configuration list for PBXNativeTarget "DexCDWidgetExtension" */;
+			buildPhases = (
+				E67975822F024A02000C4FF7 /* Sources */,
+				E67975832F024A02000C4FF7 /* Frameworks */,
+				E67975842F024A02000C4FF7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				E679758C2F024A02000C4FF7 /* DexCDWidget */,
+			);
+			name = DexCDWidgetExtension;
+			packageProductDependencies = (
+			);
+			productName = DexCDWidgetExtension;
+			productReference = E67975862F024A02000C4FF7 /* DexCDWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -81,6 +190,9 @@
 				LastUpgradeCheck = 2620;
 				TargetAttributes = {
 					E654AAE92EFF9E1B00C9F09B = {
+						CreatedOnToolsVersion = 26.2;
+					};
+					E67975852F024A02000C4FF7 = {
 						CreatedOnToolsVersion = 26.2;
 					};
 				};
@@ -100,12 +212,20 @@
 			projectRoot = "";
 			targets = (
 				E654AAE92EFF9E1B00C9F09B /* DexCD */,
+				E67975852F024A02000C4FF7 /* DexCDWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		E654AAE82EFF9E1B00C9F09B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E67975842F024A02000C4FF7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -122,7 +242,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E67975822F024A02000C4FF7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E67975952F024A04000C4FF7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E67975852F024A02000C4FF7 /* DexCDWidgetExtension */;
+			targetProxy = E67975942F024A04000C4FF7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		E654AAF82EFF9E1C00C9F09B /* Debug */ = {
@@ -306,6 +441,64 @@
 			};
 			name = Release;
 		};
+		E67975992F024A04000C4FF7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DexCDWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = DexCDWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.suiapps.DexCD.DexCDWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E679759A2F024A04000C4FF7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DexCDWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = DexCDWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.suiapps.DexCD.DexCDWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -323,6 +516,15 @@
 			buildConfigurations = (
 				E654AAFB2EFF9E1C00C9F09B /* Debug */,
 				E654AAFC2EFF9E1C00C9F09B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E67975982F024A04000C4FF7 /* Build configuration list for PBXNativeTarget "DexCDWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E67975992F024A04000C4FF7 /* Debug */,
+				E679759A2F024A04000C4FF7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
